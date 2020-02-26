@@ -141,6 +141,7 @@ export default class {
 	}
 	// 清除绘画数据
 	retDraw() {
+		this.chirography = [];
 		this.ctx.clearRect(0, 0, 700, 730)
 		this.ctx.draw()
 	}
