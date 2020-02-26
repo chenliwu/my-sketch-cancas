@@ -17,8 +17,8 @@
 				</block>
 			</view>
 			<view class="uni-flex uni-row" style="justify-content: center;">
-				<button style="margin: 5px;" @click="retDraw" type="default">清除</button>
-				<button style="margin: 5px;" @click="saveCanvasData" type="primary">确定</button>
+				<button plain="true" style="margin: 5px;" @click="retDraw" type="default">清除</button>
+				<button plain="true" style="margin: 5px;" @click="saveCanvasData" type="primary">确定</button>
 			</view>
 
 		</view>
@@ -187,6 +187,16 @@
 			},
 			// 保存涂鸦的图片
 			async saveCanvasData() {
+				
+				if(!this.canvasOperateObject.isHaveDrawData()){
+					uni.showModal({
+						title: '温馨提示',
+						content: '您还未绘画批签！',
+						showCancel: false
+					});
+					return ;
+				}
+				
 				const data = await this.canvasOperateObject.saveCanvas();
 				// console.log(data);
 				this.base64StringToCancas(data);

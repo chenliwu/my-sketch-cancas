@@ -139,9 +139,17 @@ export default class {
 		this.linePrack.unshift(this.currentLine);
 		this.currentLine = []
 	}
+	// 清除绘画数据
 	retDraw() {
 		this.ctx.clearRect(0, 0, 700, 730)
 		this.ctx.draw()
+	}
+	/**
+	 * 判断是否有绘画数据。
+	 * 有数据则返回true
+	 */
+	isHaveDrawData(){
+		return !this.chirography.length == 0;
 	}
 
 	//画两点之间的线条；参数为:line，会绘制最近的开始的两个点；

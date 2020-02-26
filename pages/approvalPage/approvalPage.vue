@@ -5,7 +5,7 @@
 		
 		<block v-if="drawCommentNodeHtml != null">
 			<view class="uni-common-mt" style="background:transparent; padding:20rpx;">
-				<rich-text :nodes="drawCommentNodeHtml"></rich-text>
+				<rich-text style="width: 100px;height: 100px;background-color: #0A98D5;" :nodes="drawCommentNodeHtml"></rich-text>
 			</view>
 		</block>
 
@@ -30,10 +30,8 @@
 		onShow() {
 			console.log("onShow");
 			if (this.drawComment) {
-				
 				let html =`<div style="text-align:center;"><img style="width:100%;" height='200' src="${this.drawComment}"/></div>`;
 				this.drawCommentNodeHtml = html;
-
 			}
 			
 		},
@@ -43,7 +41,7 @@
 				const that = this;
 				// 在uni.$on监听事件当中，无法更新页面组件。需要在onShow()方法中更新页面组件
 				uni.$on('onSketchCancasComplected', function(data) {
-					// console.log('监听到事件来自 onSketchCancasComplected ，携带参数 msg 为：' + data.data);
+					console.log('监听到事件来自 onSketchCancasComplected ，携带参数 msg 为：' + data.data);
 					that.drawComment = data.data;
 				})
 			},
