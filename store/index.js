@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 const moduleA = {
 	state: {
-		count: 3
+		count: 3,
 	},
 	mutations: {
 		increment(state) {
